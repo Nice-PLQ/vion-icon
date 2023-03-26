@@ -1,0 +1,47 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path d="M20.7873 18.61L19.5093 19.906C18.8253 19.078 17.8353 18.214 16.5573 17.278L17.8893 16C19.0233 16.864 19.9953 17.746 20.7873 18.61Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M27.1413 26.764V32.506H25.3953V26.764H25.3773C24.5313 28.852 23.1813 30.562 21.3093 31.93L20.3373 30.346C21.9213 29.374 23.1273 28.186 23.9193 26.764H20.9133V25.036H25.3953V23.776H21.6333V16.468H30.9393V23.776H27.1413V25.036H31.6953V26.764H28.6173C29.3733 28.114 30.5793 29.338 32.1993 30.436L30.9933 31.93C29.1933 30.364 27.9333 28.636 27.1773 26.764H27.1413ZM25.3953 19.402H23.3433V18.088H25.3953V19.402ZM27.1413 19.402H29.2293V18.088H27.1413V19.402ZM29.2293 22.192H27.1413V20.914H29.2293V22.192ZM23.3433 22.192H25.3953V20.914H23.3433V22.192Z" fill="currentColor"/>
+<path d="M17.9073 31.858C19.0413 31.066 20.1213 30.166 21.1473 29.158L20.6613 27.232C20.2473 27.646 19.8513 28.024 19.4733 28.384V21.184H15.3333V22.984H17.6733V29.23C17.6733 29.608 17.5113 29.932 17.1873 30.184L17.9073 31.858Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 12C4 9.79086 5.79086 8 8 8H40C42.2091 8 44 9.79086 44 12V36C44 38.2091 42.2091 40 40 40H8C5.79086 40 4 38.2091 4 36V12ZM8 12H40V36H8V12Z" fill="currentColor"/>
+<path d="M20.7873 18.61L19.5093 19.906C18.8253 19.078 17.8353 18.214 16.5573 17.278L17.8893 16C19.0233 16.864 19.9953 17.746 20.7873 18.61Z" stroke="currentColor" stroke-width="0.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M27.1413 26.764V32.506H25.3953V26.764H25.3773C24.5313 28.852 23.1813 30.562 21.3093 31.93L20.3373 30.346C21.9213 29.374 23.1273 28.186 23.9193 26.764H20.9133V25.036H25.3953V23.776H21.6333V16.468H30.9393V23.776H27.1413V25.036H31.6953V26.764H28.6173C29.3733 28.114 30.5793 29.338 32.1993 30.436L30.9933 31.93C29.1933 30.364 27.9333 28.636 27.1773 26.764H27.1413ZM25.3953 19.402H23.3433V18.088H25.3953V19.402ZM27.1413 19.402H29.2293V18.088H27.1413V19.402ZM29.2293 22.192H27.1413V20.914H29.2293V22.192ZM23.3433 22.192H25.3953V20.914H23.3433V22.192Z" stroke="currentColor" stroke-width="0.5"/>
+<path d="M17.9073 31.858C19.0413 31.066 20.1213 30.166 21.1473 29.158L20.6613 27.232C20.2473 27.646 19.8513 28.024 19.4733 28.384V21.184H15.3333V22.984H17.6733V29.23C17.6733 29.608 17.5113 29.932 17.1873 30.184L17.9073 31.858Z" stroke="currentColor" stroke-width="0.5"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M4 12C4 9.79086 5.79086 8 8 8H40C42.2091 8 44 9.79086 44 12V36C44 38.2091 42.2091 40 40 40H8C5.79086 40 4 38.2091 4 36V12ZM8 12H40V36H8V12Z" stroke="currentColor" stroke-width="0.5"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const GroupClass = defineComponent({
+    name: 'QGroupClass',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  GroupClass.install = (app) => {
+    app.component(GroupClass.name, GroupClass);
+  }
+
+  export default GroupClass;
+</script>

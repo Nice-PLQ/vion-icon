@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M40 24C40 15.1634 32.8366 8 24 8C15.1634 8 8 15.1634 8 24C8 32.8366 15.1634 40 24 40C32.8366 40 40 32.8366 40 24ZM44 24C44 12.9543 35.0457 4 24 4C12.9543 4 4 12.9543 4 24C4 35.0457 12.9543 44 24 44C35.0457 44 44 35.0457 44 24ZM22.3714 30.4H21.8V30.9715V33.8286V34.4H22.3714H25.2286H25.8V33.8286V30.9715V30.4H25.2286H22.3714ZM23.8248 12.4286C19.9767 12.4286 16.8571 15.5481 16.8571 19.3963H20.8571C20.8571 17.7573 22.1858 16.4286 23.8248 16.4286C25.4639 16.4286 26.7925 17.7573 26.7925 19.3963C26.7925 20.2982 26.3927 21.1045 25.7536 21.6519C25.7541 21.6514 25.7539 21.6516 25.753 21.6523L25.753 21.6523C25.7454 21.6579 25.6921 21.6978 25.5693 21.7637C25.4394 21.8334 25.2742 21.9098 25.0796 21.9892C24.6885 22.1487 24.2583 22.288 23.9102 22.3904C22.7225 22.7398 21.8248 23.8339 21.8248 25.1608V28.1429H25.8248V25.9784C26.071 25.8941 26.3312 25.7986 26.5899 25.6931C27.1048 25.4831 27.8103 25.157 28.3557 24.6899C29.8441 23.415 30.7925 21.5153 30.7925 19.3963C30.7925 15.5481 27.673 12.4286 23.8248 12.4286Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const QuestionMarkCircle = defineComponent({
+    name: 'QQuestionMarkCircle',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  QuestionMarkCircle.install = (app) => {
+    app.component(QuestionMarkCircle.name, QuestionMarkCircle);
+  }
+
+  export default QuestionMarkCircle;
+</script>

@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M19.457 5.00012L18.159 12.9991H33.288L34.552 5.00012H38.601L37.337 12.9991H45.107L44.459 16.9991H36.7102L36.71 17L34.9797 27.9229L34.6624 29.9318L34.6615 29.9316L34.4924 30.9991H42.188L41.539 34.9991H33.8588L32.7096 42.2535C32.5368 43.3445 31.5123 44.0888 30.4213 43.9159C29.9673 43.844 29.5519 43.6179 29.2451 43.2756L21.8261 35H14.5899L13.293 42.9991H9.241L10.5389 35H10.5288L10.5289 34.9991H2.591L3.24 30.9991H11.1821L11.9367 26.3775L13.458 16.9991H5.511L6.16 12.9991H14.107L15.405 5.00012H19.457ZM22.4938 31H23.6122L24.8044 32.3299L29.4167 37.4748L30.991 27.5366L32.6559 17H17.5208L15.8411 27.2874L15.239 30.9991H22.493L22.4938 31Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Channel = defineComponent({
+    name: 'QChannel',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Channel.install = (app) => {
+    app.component(Channel.name, Channel);
+  }
+
+  export default Channel;
+</script>

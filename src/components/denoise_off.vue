@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8.1109 1.78247L5.28247 4.6109L42.7591 42.0876L45.5876 39.2591L40.9497 34.6213C42.8824 31.5437 44 27.9023 44 24C44 12.9543 35.0457 3.99999 24 3.99999C20.0976 3.99999 16.4563 5.11762 13.3787 7.05025L8.1109 1.78247ZM16.2998 9.97136L22 15.6716V12H26V19.6716L31 24.6716V16.5H35V28.6716L38.0286 31.7002C39.2852 29.4158 40 26.7914 40 24C40 15.1634 32.8366 7.99999 24 7.99999C21.2086 7.99999 18.5842 8.7148 16.2998 9.97136ZM32.6403 37.4687L35.5215 40.3499C32.2645 42.6493 28.29 44 24 44C12.9543 44 4 35.0457 4 24C4 19.71 5.35071 15.7354 7.65005 12.4785L10.5312 15.3597C8.92925 17.8517 8 20.8173 8 24C8 32.8365 15.1634 40 24 40C27.1827 40 30.1483 39.0707 32.6403 37.4687ZM13 30.5V17.8284L17 21.8284V30.5H13ZM22 34.75V26.8284L26 30.8284V34.75H22Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const DenoiseOff = defineComponent({
+    name: 'QDenoiseOff',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  DenoiseOff.install = (app) => {
+    app.component(DenoiseOff.name, DenoiseOff);
+  }
+
+  export default DenoiseOff;
+</script>

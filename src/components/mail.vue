@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M9.14193 12L24 23.5584L38.8581 12H9.14193ZM44 11.5055V24.9412V36.5714C44 36.6898 43.994 36.8067 43.9823 36.922C43.8067 38.6509 42.3466 40 40.5714 40H24H7.42857C5.53502 40 4 38.465 4 36.5714V24.9412V11.5055V11.4286C4 9.53502 5.53502 8 7.42857 8H40.5714C42.465 8 44 9.53502 44 11.4286V11.5055ZM40 16.1795L26.456 26.7156L24 28.6262L21.544 26.7156L8 16.1795V24.9412V36H24H40V24.9412V16.1795Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Mail = defineComponent({
+    name: 'QMail',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Mail.install = (app) => {
+    app.component(Mail.name, Mail);
+  }
+
+  export default Mail;
+</script>

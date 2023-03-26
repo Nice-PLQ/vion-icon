@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M5.1109 4.78247L2.28247 7.6109L37.6378 42.9662L40.4662 40.1378L37.9879 37.6595C38.6175 36.9527 39 36.021 39 35V32.404L45 35V12L39 14.595V12C39 9.79086 37.2091 8 35 8H8.32842L5.1109 4.78247ZM12.3284 12L16.3284 16H19V18.6716L35 34.6716V26.315L41 28.91V18.087L35 20.6831V12H12.3284ZM3 35V13.8284L7 17.8284V35H24.1716L28.1716 39H7C4.79086 39 3 37.2091 3 35Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const VideoOff = defineComponent({
+    name: 'QVideoOff',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  VideoOff.install = (app) => {
+    app.component(VideoOff.name, VideoOff);
+  }
+
+  export default VideoOff;
+</script>

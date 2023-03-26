@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M32.1308 12.5623L29.2705 9.70349H40.0109V17.1428H44.0109V8.56063C44.0109 6.98268 42.7317 5.70349 41.1537 5.70349H29.2921L32.1308 2.86627L29.7051 0.440552L22.4331 7.71427L29.7051 14.988L32.1308 12.5623ZM10.8571 21.1428H32L32 35.4285H10.8571L10.8571 21.1428ZM6.85715 21.1428C6.85715 18.9337 8.64801 17.1428 10.8571 17.1428H32C34.2091 17.1428 36 18.9337 36 21.1428V35.4285C36 37.6377 34.2091 39.4285 32 39.4285H10.8571C8.648 39.4285 6.85715 37.6377 6.85715 35.4285V21.1428Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Rotate = defineComponent({
+    name: 'QRotate',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Rotate.install = (app) => {
+    app.component(Rotate.name, Rotate);
+  }
+
+  export default Rotate;
+</script>

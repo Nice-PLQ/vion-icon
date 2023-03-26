@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M24 3.14282C12.4809 3.14282 3.14285 12.4809 3.14285 24C3.14285 29.759 5.47956 34.976 9.25177 38.7482L12.0802 35.9198C9.02746 32.867 7.14285 28.6555 7.14285 24C7.14285 14.69 14.6901 7.14282 24 7.14282C28.8927 7.14282 33.2961 9.22465 36.3782 12.5568C39.1599 15.5641 40.8571 19.5816 40.8571 24C40.8571 27.9351 39.5107 31.553 37.2504 34.422L33.9861 31.1577C35.4325 29.1427 36.2857 26.6698 36.2857 24C36.2857 17.2148 30.7852 11.7143 24 11.7143C17.2148 11.7143 11.7143 17.2148 11.7143 24C11.7143 27.392 13.0916 30.4662 15.3127 32.6873L18.1411 29.8589C16.6395 28.3573 15.7143 26.2886 15.7143 24C15.7143 19.4239 19.4239 15.7143 24 15.7143C28.5761 15.7143 32.2857 19.4239 32.2857 24C32.2857 25.5638 31.8537 27.0249 31.101 28.2726L28.0954 25.2669C28.2191 24.8665 28.2857 24.441 28.2857 24C28.2857 21.633 26.3669 19.7143 24 19.7143C21.6331 19.7143 19.7143 21.633 19.7143 24C19.7143 26.3669 21.6331 28.2857 24 28.2857C24.441 28.2857 24.8665 28.2191 25.2669 28.0953L38.0144 40.8428L40.8428 38.0143L40.0948 37.2664C43.0685 33.6622 44.8571 29.0385 44.8571 24C44.8571 18.5356 42.7531 13.5581 39.3146 9.84065C35.5072 5.72436 30.0536 3.14282 24 3.14282Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const SearchNewDevices = defineComponent({
+    name: 'QSearchNewDevices',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  SearchNewDevices.install = (app) => {
+    app.component(SearchNewDevices.name, SearchNewDevices);
+  }
+
+  export default SearchNewDevices;
+</script>

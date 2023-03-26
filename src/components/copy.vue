@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M38.5714 6C40.465 6 42 7.53502 42 9.42857V31.7143C42 33.6078 40.465 35.1429 38.5714 35.1429H35.1429V31.7143H38.5714V9.42857H16.2857V12.8571H12.8571V9.42857C12.8571 7.53502 14.3922 6 16.2857 6H38.5714ZM10 16.8571V38H31.1429V16.8571H10ZM9.42857 12.8571C7.53502 12.8571 6 14.3922 6 16.2857V38.5714C6 40.465 7.53502 42 9.42857 42H31.7143C33.6078 42 35.1429 40.465 35.1429 38.5714V16.2857C35.1429 14.3922 33.6078 12.8571 31.7143 12.8571H9.42857ZM18.5 20.5V22.5V23.5V23.9286V25.5H16.9286H16.5H15.5H13.5V26.0714V27.5V28.9286V29.5H15.5H16.5H16.9286H18.5V31.0714V31.5V32.5V34.5H19.0714H20.5H21.9286H22.5V32.5V31.5V31.0714V29.5H24.0714H24.5H25.5H27.5V28.9286V27.5V26.0714V25.5H25.5H24.5H24.0714H22.5V23.9286V23.5V22.5V20.5H21.9286H20.5H19.0714H18.5Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Copy = defineComponent({
+    name: 'QCopy',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Copy.install = (app) => {
+    app.component(Copy.name, Copy);
+  }
+
+  export default Copy;
+</script>

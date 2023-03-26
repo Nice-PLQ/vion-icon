@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.9997 35C16.4929 35 9.90758 30.7921 6.45539 24.5C9.90758 18.2079 16.4929 14 23.9997 14C31.5065 14 38.0919 18.2079 41.5441 24.5C38.0919 30.7921 31.5065 35 23.9997 35ZM23.9997 10C33.8026 10 42.2381 15.954 45.9999 24.5C42.2381 33.046 33.8026 39 23.9997 39C14.1968 39 5.76139 33.046 1.99951 24.5C5.76139 15.954 14.1968 10 23.9997 10ZM27.9999 24C27.9999 26.2091 26.2091 28 23.9999 28C21.7908 28 19.9999 26.2091 19.9999 24C19.9999 21.7909 21.7908 20 23.9999 20C26.2091 20 27.9999 21.7909 27.9999 24ZM31.9999 24C31.9999 28.4183 28.4182 32 23.9999 32C19.5817 32 15.9999 28.4183 15.9999 24C15.9999 19.5817 19.5817 16 23.9999 16C28.4182 16 31.9999 19.5817 31.9999 24Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Visible = defineComponent({
+    name: 'QVisible',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Visible.install = (app) => {
+    app.component(Visible.name, Visible);
+  }
+
+  export default Visible;
+</script>

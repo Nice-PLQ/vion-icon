@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M23.5 10C19.9101 10 17 12.9101 17 16.5C17 20.0899 19.9101 23 23.5 23C27.0899 23 30 20.0899 30 16.5C30 12.9101 27.0899 10 23.5 10ZM13 16.5C13 10.701 17.701 6 23.5 6C29.299 6 34 10.701 34 16.5C34 22.299 29.299 27 23.5 27C17.701 27 13 22.299 13 16.5ZM33 41H37V35H43V31H37V25H33V31H27V35H33V41ZM23 31C16.5865 31 10.733 33.4176 6.30843 37.3881C5.94533 37.7139 5.59183 38.0503 5.24839 38.3966L8.08858 41.2132C8.37738 40.922 8.67465 40.6392 8.97997 40.3652C12.6991 37.0278 17.6103 35 23 35V31Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const AddFriend = defineComponent({
+    name: 'QAddFriend',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  AddFriend.install = (app) => {
+    app.component(AddFriend.name, AddFriend);
+  }
+
+  export default AddFriend;
+</script>

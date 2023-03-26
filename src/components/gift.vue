@@ -1,0 +1,42 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M33.0167 7.46556L30.2536 4.66131L24.4726 10.5193L18.7009 4.66131L15.9356 7.46331L21.9179 13.5352L23.7414 11.6875L26.2938 14.278L33.0167 7.46556Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M10 20V15H38V20H35.1486C35.1467 20 35.1448 20 35.1428 20H12.8571C12.8552 20 12.8533 20 12.8513 20H10ZM9.42854 24C7.53501 24 6 22.465 6 20.5714V14.4286C6 12.535 7.53502 11 9.42857 11H38.5714C40.465 11 42 12.535 42 14.4286V20.5714C42 22.465 40.465 24 38.5714 24H38.5714L38.5714 38.4631C38.5714 40.4514 36.9597 42.0631 34.9714 42.0631H13.0286C11.0403 42.0631 9.42857 40.4514 9.42857 38.4631L9.42854 24ZM13.4285 24L13.4286 38.0631H34.5714L34.5714 24H13.4285Z" fill="currentColor"/>
+<rect x="22" y="21" width="4" height="20" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Gift = defineComponent({
+    name: 'QGift',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Gift.install = (app) => {
+    app.component(Gift.name, Gift);
+  }
+
+  export default Gift;
+</script>

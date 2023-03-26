@@ -1,0 +1,43 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<mask id="path-1-inside-1_283_14064" fill="white">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M8 7C5.79086 7 4 8.79086 4 11V30V34V42.3455C4 43.926 5.74689 44.882 7.07811 44.03L16.5 38H40C42.2091 38 44 36.2091 44 34V11C44 8.79086 42.2091 7 40 7H8Z"/>
+</mask>
+<path d="M7.07811 44.03L9.23432 47.3991L7.07811 44.03ZM16.5 38V34H15.3296L14.3438 34.6309L16.5 38ZM8 11V11V3C3.58172 3 0 6.58172 0 11H8ZM8 30V11H0V30H8ZM0 30V34H8V30H0ZM0 34V42.3455H8V34H0ZM0 42.3455C0 47.087 5.24067 49.955 9.23432 47.3991L4.92189 40.6609C6.25311 39.8089 8 40.765 8 42.3455H0ZM9.23432 47.3991L18.6562 41.3691L14.3438 34.6309L4.92189 40.6609L9.23432 47.3991ZM40 34H16.5V42H40V34ZM40 34V42C44.4183 42 48 38.4183 48 34H40ZM40 11V34H48V11H40ZM40 11V11H48C48 6.58172 44.4183 3 40 3V11ZM8 11H40V3H8V11Z" fill="currentColor" mask="url(#path-1-inside-1_283_14064)"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Message = defineComponent({
+    name: 'QMessage',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Message.install = (app) => {
+    app.component(Message.name, Message);
+  }
+
+  export default Message;
+</script>

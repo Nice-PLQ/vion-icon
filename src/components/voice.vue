@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M40 24C40 15.2244 36.3166 7.29005 30.3899 1.56189L27.6101 4.43809C32.8047 9.45866 36 16.3735 36 24C36 31.6265 32.8047 38.5413 27.6101 43.5619L30.3899 46.4381C36.3166 40.7099 40 32.7755 40 24ZM20.4721 11.6461C23.2845 14.7041 25 18.9003 25 23.5C25 28.0997 23.2845 32.2958 20.4721 35.3539L17.5279 32.6461C19.6582 30.3298 21 27.1013 21 23.5C21 19.8987 19.6582 16.6702 17.5279 14.3539L20.4721 11.6461ZM12.1428 24C12.1428 25.933 10.5758 27.5 8.64282 27.5C6.70983 27.5 5.14282 25.933 5.14282 24C5.14282 22.067 6.70983 20.5 8.64282 20.5C10.5758 20.5 12.1428 22.067 12.1428 24Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Voice = defineComponent({
+    name: 'QVoice',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Voice.install = (app) => {
+    app.component(Voice.name, Voice);
+  }
+
+  export default Voice;
+</script>

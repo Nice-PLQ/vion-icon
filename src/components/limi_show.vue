@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M25.5508 5C34.6354 5 42 12.4338 42 21.6038V34.434C42 36.5181 40.3262 38.2075 38.2615 38.2075H35.6296V42.2054C35.6296 43.4558 34.2834 44.2435 33.1933 43.631L25.4267 39.2668L24.4142 38.6979L23.4017 39.2668L15.6351 43.631C14.5451 44.2435 13.1988 43.4558 13.1988 42.2054V38.2075H9.73846C7.67377 38.2075 6 36.5181 6 34.434V21.6038C6 12.4338 13.3646 5 22.4492 5H25.5508ZM24.4142 35.2024L23.4793 34.635L15.6824 29.9034C14.5927 29.2421 13.1988 30.0266 13.1988 31.3013V34.21H10.6974H10V33.5097V21.605L10.0021 21.3734C10.1251 14.5187 15.6974 9 22.5535 9H25.4465L25.6771 9.00208C32.5038 9.12557 38 14.7208 38 21.605V33.5097V34.21H37.3026H35.6296V31.3013C35.6296 30.0266 34.2358 29.2421 33.146 29.9034L25.3492 34.635L24.4142 35.2024ZM17.1988 35.5026V38.1641L19.476 36.8845L17.1988 35.5026ZM31.6296 38.1641V35.5026L29.3524 36.8845L31.6296 38.1641ZM18.1306 21.9807L15.8714 19.7051L18.3552 17.2392L21.8314 20.7407L23.0485 21.9665L21.8385 23.1994L18.4021 26.7009L15.9042 24.2493L18.1306 21.9807ZM27.6429 18V25.7143H31.5V18H27.6429Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const LimiShow = defineComponent({
+    name: 'QLimiShow',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  LimiShow.install = (app) => {
+    app.component(LimiShow.name, LimiShow);
+  }
+
+  export default LimiShow;
+</script>

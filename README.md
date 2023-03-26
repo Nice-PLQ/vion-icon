@@ -1,2 +1,1 @@
-# vion-icon
-A standalone SVG icon for the vion component library
+# vion的全量组件库

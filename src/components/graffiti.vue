@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 10H36C37.1046 10 38 10.8954 38 12V36C38 37.1046 37.1046 38 36 38H35.09L31.6855 24.9077L31.2963 23.411H29.7498H28.9604L25.7276 13.6451C25.1768 11.9813 22.8232 11.9813 22.2724 13.6451L19.0396 23.411H18.3952H16.8619L16.4638 24.8917L12.939 38H12C10.8954 38 10 37.1046 10 36V12C10 10.8954 10.8954 10 12 10ZM17.0811 38H30.957L28.2034 27.411H19.9284L17.0811 38ZM6 12C6 8.68629 8.68629 6 12 6H36C39.3137 6 42 8.68629 42 12V36C42 39.3137 39.3137 42 36 42H12C8.68629 42 6 39.3137 6 36V12Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const Graffiti = defineComponent({
+    name: 'QGraffiti',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  Graffiti.install = (app) => {
+    app.component(Graffiti.name, Graffiti);
+  }
+
+  export default Graffiti;
+</script>

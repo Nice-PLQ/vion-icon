@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M29 19C26.7909 19 25 17.2091 25 15C25 12.7909 26.7909 11 29 11C31.2091 11 33 12.7909 33 15C33 17.2091 31.2091 19 29 19ZM29 23C25.2723 23 22.1401 20.4505 21.252 17H6V13H21.252C22.1401 9.54955 25.2723 7 29 7C32.7277 7 35.8599 9.54955 36.748 13H42V17H36.748C35.8599 20.4505 32.7277 23 29 23ZM11.252 31C12.1401 27.5495 15.2723 25 19 25C22.7277 25 25.8599 27.5495 26.748 31H42V35H26.748C25.8599 38.4505 22.7277 41 19 41C15.2723 41 12.1401 38.4505 11.252 35H6V31H11.252ZM23 33C23 35.2091 21.2091 37 19 37C16.7909 37 15 35.2091 15 33C15 30.7909 16.7909 29 19 29C21.2091 29 23 30.7909 23 33Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const SetSwitch = defineComponent({
+    name: 'QSetSwitch',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  SetSwitch.install = (app) => {
+    app.component(SetSwitch.name, SetSwitch);
+  }
+
+  export default SetSwitch;
+</script>

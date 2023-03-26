@@ -1,0 +1,40 @@
+
+<template>
+  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M6 6H12V12H6V6ZM6 21H12V27H6V21ZM21 21H27V27H21V21ZM42 21H36V27H42V21ZM12 36H6V42H12V36ZM27 36H21V42H27V36ZM36 36H42V42H36V36ZM21 6H27V12H21V6ZM42 6H36V12H42V6Z" fill="currentColor"/>
+</svg>
+</i>
+</template>
+
+<script>
+  import { defineComponent, computed } from 'vue';
+
+  const MoreApps = defineComponent({
+    name: 'QMoreApps',
+    props: {
+      color: String,
+      size: String,
+    },
+    emits: ['click'],
+    setup(props, ctx) {
+      const iconStyle = computed(() => ({
+        display: 'inline-block',
+        fontSize: props.size,
+        color: props.color,
+        width: '1em',
+        height: '1em',
+        lineHeight: '1em',
+      }));
+
+      const click = (e) => ctx.emit('click', e);
+
+      return { iconStyle, click };
+    }
+  });
+
+  MoreApps.install = (app) => {
+    app.component(MoreApps.name, MoreApps);
+  }
+
+  export default MoreApps;
+</script>
