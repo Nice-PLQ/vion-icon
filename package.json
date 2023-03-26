@@ -1,6 +1,6 @@
 {
-  "name": "@tencent/q-ui-icon",
-  "version": "1.0.21",
+  "name": "vion-icon",
+  "version": "1.0.0",
   "description": "vion组件库的独立的SVG图标",
   "main": "lib/index.js",
   "module": "es/index-es.js",
