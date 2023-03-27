@@ -7,7 +7,7 @@ import multiInput from 'rollup-plugin-multi-input';
 
 import pkg from './package.json';
 
-const name = 'q-ui-icon';
+const name = 'vion-icon';
 const externalDeps = Object.keys(pkg.peerDependencies).concat([/@babel\/runtime/]);
 const banner = `/**
  * ${name} v${pkg.version}
@@ -41,7 +41,7 @@ const getPlugins = () => {
 };
 
 const esConfig = {
-  input: ['src/*/*.vue', 'src/index-es.js'],
+  input: ['src/*/*.vue', 'src/index.js'],
   external: externalDeps,
   plugins: getPlugins(),
   output: {
@@ -51,16 +51,4 @@ const esConfig = {
   },
 };
 
-const cjsConfig = {
-  input: ['src/*/*.vue', 'src/index.js'],
-  external: externalDeps,
-  plugins: getPlugins(),
-  output: {
-    banner,
-    dir: 'lib/',
-    format: 'cjs',
-    exports: 'named',
-  },
-};
-
-export default [esConfig, cjsConfig];
+export default esConfig;

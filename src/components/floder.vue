@@ -1,6 +1,6 @@
 
 <template>
-  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <i class="v-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M23.8964 18L20.5047 12H8V36H40V18H23.8964ZM22.8384 8L26.2301 14H40C42.2091 14 44 15.7909 44 18V36C44 38.2091 42.2091 40 40 40H8C5.79086 40 4 38.2091 4 36V12C4 9.79086 5.79086 8 8 8H22.8384Z" fill="currentColor"/>
 </svg>
 </i>
@@ -10,7 +10,7 @@
   import { defineComponent, computed } from 'vue';
 
   const Floder = defineComponent({
-    name: 'QFloder',
+    name: 'Floder',
     props: {
       color: String,
       size: String,

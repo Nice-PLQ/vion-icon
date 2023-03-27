@@ -1,6 +1,6 @@
 
 <template>
-  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <i class="v-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M31 18C31 21.866 27.866 25 24 25C20.134 25 17 21.866 17 18C17 14.134 20.134 11 24 11C27.866 11 31 14.134 31 18ZM35 18C35 24.0751 30.0751 29 24 29C17.9249 29 13 24.0751 13 18C13 11.9249 17.9249 7 24 7C30.0751 7 35 11.9249 35 18ZM23.9563 33.7833C17.6012 33.7833 11.7036 35.8275 6.8361 39.3107L9.1639 42.5636C13.3857 39.5425 18.4761 37.7833 23.9563 37.7833C29.4716 37.7833 34.5922 39.5651 38.8299 42.622L41.1701 39.378C36.2847 35.8539 30.3522 33.7833 23.9563 33.7833Z" fill="currentColor"/>
 </svg>
 </i>
@@ -10,7 +10,7 @@
   import { defineComponent, computed } from 'vue';
 
   const Contact = defineComponent({
-    name: 'QContact',
+    name: 'Contact',
     props: {
       color: String,
       size: String,

@@ -1,6 +1,6 @@
 
 <template>
-  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <i class="v-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M8 20C8 13.3726 13.3726 8 20 8C26.6274 8 32 13.3726 32 20C32 26.6274 26.6274 32 20 32C13.3726 32 8 26.6274 8 20ZM20 4C11.1634 4 4 11.1634 4 20C4 28.8366 11.1634 36 20 36C23.7514 36 27.2013 34.7089 29.9295 32.5469L40.9371 43.6652L43.7796 40.8509L32.7317 29.6918C34.7823 27.0022 36 23.6433 36 20C36 11.1634 28.8366 4 20 4Z" fill="currentColor"/>
 </svg>
 </i>
@@ -10,7 +10,7 @@
   import { defineComponent, computed } from 'vue';
 
   const Search = defineComponent({
-    name: 'QSearch',
+    name: 'Search',
     props: {
       color: String,
       size: String,

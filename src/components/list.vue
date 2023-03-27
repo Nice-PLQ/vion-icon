@@ -1,7 +1,7 @@
 
 <template>
   <i class="v-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-<path fill-rule="evenodd" clip-rule="evenodd" d="M13.08 18.08H9.08002V12.08V8.08002H13.08H19.08V12.08H15.9084L21.4942 17.6658L22.9084 19.08L20.08 21.9084L18.6658 20.4942L13.08 14.9084V18.08ZM29.4142 26.5858L28 25.1716L25.1716 28L26.5858 29.4142L32.1716 35H29V39H35H39V35V29H35V32.1716L29.4142 26.5858Z" fill="currentColor"/>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M12 40V8H29.8612L36 13.2499V40H12ZM11.3016 4H31.3383L40 11.4074V40.6984C40 42.5218 38.5218 44 36.6984 44H11.3016C9.47817 44 8 42.5218 8 40.6984V7.30159C8 5.47817 9.47817 4 11.3016 4ZM25.0286 13.5714H16.2857V17.5714H25.0286V13.5714ZM16.2857 29.5714H30.8571V33.5714H16.2857V29.5714ZM30.8571 21.5714H16.2857V25.5714H30.8571V21.5714Z" fill="currentColor"/>
 </svg>
 </i>
 </template>
@@ -9,8 +9,8 @@
 <script>
   import { defineComponent, computed } from 'vue';
 
-  const ZoomIn = defineComponent({
-    name: 'ZoomIn',
+  const List = defineComponent({
+    name: 'List',
     props: {
       color: String,
       size: String,
@@ -32,9 +32,9 @@
     }
   });
 
-  ZoomIn.install = (app) => {
-    app.component(ZoomIn.name, ZoomIn);
+  List.install = (app) => {
+    app.component(List.name, List);
   }
 
-  export default ZoomIn;
+  export default List;
 </script>

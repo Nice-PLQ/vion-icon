@@ -1,6 +1,6 @@
 
 <template>
-  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <i class="v-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M42 9V13H6V9H42ZM42 22V26H6V22H42ZM42 39V35H6V39H42Z" fill="currentColor"/>
 </svg>
 </i>
@@ -10,7 +10,7 @@
   import { defineComponent, computed } from 'vue';
 
   const ChatSettings = defineComponent({
-    name: 'QChatSettings',
+    name: 'ChatSettings',
     props: {
       color: String,
       size: String,

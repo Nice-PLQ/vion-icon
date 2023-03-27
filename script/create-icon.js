@@ -7,14 +7,14 @@ async function createTemplate(svg, name) {
   const componentName = uppercamelcase(name);
   const content = `
 <template>
-  <i class="q-icon" @click="click" :style="iconStyle">${svg}</i>
+  <i class="v-icon" @click="click" :style="iconStyle">${svg}</i>
 </template>
 
 <script>
   import { defineComponent, computed } from 'vue';
 
   const ${componentName} = defineComponent({
-    name: 'Q${componentName}',
+    name: '${componentName}',
     props: {
       color: String,
       size: String,
@@ -49,7 +49,7 @@ async function createTemplate(svg, name) {
 
 async function createEntry(components) {
   const componentsList = components.map(name => {
-    return `export { default as ${uppercamelcase(name)}} from './components/${name}.vue'`;
+    return `export { default as ${uppercamelcase(name)}} from './components/${name}.vue';`;
   }).join('\n');
 
   await fs.writeFile(path.resolve(`./src/components.js`), componentsList, 'utf-8');

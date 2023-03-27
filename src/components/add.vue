@@ -1,6 +1,6 @@
 
 <template>
-  <i class="q-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <i class="v-icon" @click="click" :style="iconStyle"><svg width="1em" height="1em" viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 <path fill-rule="evenodd" clip-rule="evenodd" d="M26 7H22V22H7V26H22V41H26V26H41V22H26V7Z" fill="currentColor"/>
 </svg>
 </i>
@@ -10,7 +10,7 @@
   import { defineComponent, computed } from 'vue';
 
   const Add = defineComponent({
-    name: 'QAdd',
+    name: 'Add',
     props: {
       color: String,
       size: String,
