@@ -1,5 +1,5 @@
 {
-  "name": "vion-icon",
+  "name": "vion-svg-icon",
   "version": "1.0.0",
   "description": "svg icon for vion component",
   "main": "es/index.js",
@@ -9,8 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run create && cross-env NODE_ENV=production rollup -c rollup.config.js",
-    "create": "node ./script/create-icon.js",
-    "prepare": "npm run build"
+    "create": "node ./script/create-icon.js"
   },
   "repository": {
     "type": "git",
