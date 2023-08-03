@@ -51,4 +51,16 @@ const esConfig = {
   },
 };
 
-export default esConfig;
+const cjsConfig = {
+  input: ['src/*/*.vue', 'src/index.js'],
+  external: externalDeps,
+  plugins: getPlugins(),
+  output: {
+    banner,
+    dir: 'lib/',
+    format: 'cjs',
+    exports: 'named',
+  },
+};
+
+export default [esConfig, cjsConfig];

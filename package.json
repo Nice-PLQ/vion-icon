@@ -1,8 +1,8 @@
 {
   "name": "vion-svg-icon",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "svg icon for vion component",
-  "main": "es/index.js",
+  "main": "lib/index.js",
   "module": "es/index.js",
   "typings": "types/index.d.ts",
   "type": "module",
@@ -11,9 +11,10 @@
     "build": "npm run create && cross-env NODE_ENV=production rollup -c rollup.config.js",
     "create": "node ./script/create-icon.js"
   },
+  "homepage": "https://nice-plq.github.io/vion/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nice-PLQ/vion-icon"
+    "url": "https://github.com/Nice-PLQ/vion-svg-icon"
   },
   "engines": {
     "node": ">=14.0.0"

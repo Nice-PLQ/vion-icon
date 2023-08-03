@@ -23,9 +23,9 @@ declare class ChatSettings extends IconComponent { };
 declare class Check extends IconComponent { };
 declare class CheckCircle extends IconComponent { };
 declare class CheckFilled extends IconComponent { };
+declare class ClosCircle extends IconComponent { };
 declare class Close extends IconComponent { };
 declare class CloseFilled extends IconComponent { };
-declare class ClosCircle extends IconComponent { };
 declare class Complaint extends IconComponent { };
 declare class Computer extends IconComponent { };
 declare class Contact extends IconComponent { };
@@ -92,9 +92,9 @@ export {
   Check,
   CheckCircle,
   CheckFilled,
+  ClosCircle,
   Close,
   CloseFilled,
-  ClosCircle,
   Complaint,
   Computer,
   Contact,
